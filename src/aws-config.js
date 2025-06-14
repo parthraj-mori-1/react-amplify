@@ -1,7 +1,3 @@
-
-import { getCurrentUser, signInWithRedirect } from 'aws-amplify/auth';
-
-
 export const awsConfig = {
   Auth: {
     region: "ap-south-1", // e.g. "us-east-1"
@@ -15,6 +11,3 @@ export const awsConfig = {
     }
   }
 };
-
-
-Amplify.configure(awsConfig);
