@@ -5,20 +5,45 @@ import HomeHealthcare from './pages/HomeReferralPage';
 import InvoiceProcessing from './pages/invoiceprocessing';
 import ChatWithPDF from './pages/Chatpdf';
 import ImmigrationInfo from './pages/immigrationinfo';
-//import DamageDetection from './pages/DamageDetection';
+import ProtectedRoute from './components/ProtectedRoute'; // 👈 new import
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/home-healthcare" element={<HomeHealthcare />} />
-        <Route path="/invoice-processing" element={<InvoiceProcessing />} />
-        <Route path="/chat-pdf/*" element={<ChatWithPDF />} />
-        <Route path="/immigration-info" element={<ImmigrationInfo />} />
-
-
-
+        <Route
+          path="/home-healthcare"
+          element={
+            <ProtectedRoute>
+              <HomeHealthcare />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/invoice-processing"
+          element={
+            <ProtectedRoute>
+              <InvoiceProcessing />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chat-pdf/*"
+          element={
+            <ProtectedRoute>
+              <ChatWithPDF />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/immigration-info"
+          element={
+            <ProtectedRoute>
+              <ImmigrationInfo />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
